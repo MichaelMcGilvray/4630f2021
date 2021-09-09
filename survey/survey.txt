@@ -1,0 +1,8 @@
+Person ID	Problem										App found [name]/None					Likes										Don't likes														Improvements															Age [optional]		Gender [optional]	Education/occupation [optional]		Comments [optional]
+1. Matthew	Can't watch livestreams on multiple platforms at the same time			MultiTwitch						Good for watching multiple streams on Twitch at the same time			Can't log in to use the chatroom feature										Ability to watch streams on platforms other than Twitch										15			Male			Highschool				None
+
+2. Neil		Wants to find people to ride his motorcycle with and find fun routes to ride	Ride With Me - Motorcycle GPS & Community		Can chat with the people before committing to a ride together			The community is mainly people in Europe and there is no easy way to plan a route and share it with a group		Route suggestions and weather updates												51			Male			Police Officer				None
+
+3. Courtney	Wants to find tattoo artists based on their portfolio and previous work		Tatoodo							Can view the recent work from local artists and	search by tattoo		Requires tattoo artists to register and pay to be displayed on the app							Ability for users to search for artists without an account and remove the need for artists to pay for a subscription		22			Female			College					None
+
+4. Tim		Can't browse twitch clips from their phone easily				Clips from Twitch - Livestream Fails & Highlights	The app is easy to use and can find popular clips easily			Can only sort the clips by the number of views and the chatroom replay isn't shown					Ability to sort by category and by streamer											21			Male			College					None
