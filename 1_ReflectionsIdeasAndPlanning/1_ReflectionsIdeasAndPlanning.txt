@@ -1,0 +1,49 @@
+1. As we did not have class on 09/08/2021, I only have a few new app ideas that I have come up with on my own 
+since the previous assignment. First is an app that makes it easy to merge handwritten notes with pictures on 
+the user's device. Often, I take pictures of things that are shown in lectures when there isn't enough time to 
+write them down or when I would miss something important the professor is explaining. Then when an exam or quiz 
+is nearing, I go through my notes and photos to try and find the context of each image. This can be difficult 
+when I have twenty to thirty images for each class scrambled together and no easy way of knowing where in my 
+notes each photo is referencing. To make this process easier, an app could automatically organize the photos 
+and provide users an easy way to immediately link the photos to their notes by numbering and timestamping them.
+
+My other app idea tells its users what they should wear and bring with them based on the weather. During the 
+spring and fall, I often switch between wearing pants and shorts based on how cold it is outside. Every morning 
+when getting ready I check my phone to look at the weather, but an app could be created to push a notification 
+to the user's phone telling them what they should wear. I'm sure there are weather apps that have built-in 
+functionality to push the daily forecast as a notification, but this app could also include what they should 
+wear based on the user's preferences. The user would be able to indicate when they would normally wear pants, 
+shorts, short sleeves, long sleeves, sweater, jacket, winter jacket, etc. and the app would use that and the 
+forecast to tell the user what they probably want to wear for the day. Additionally, in the case of rain, the 
+app could indicate the user to bring an umbrella, raincoat, and/or rain boots depending on the type of storm.
+
+
+2. Developers can allow advertisements without their customer base feeling alienated by allowing a reasonable 
+number of ads. Users, for the most part, don't want to spend their time viewing advertisements, but when done 
+sparingly, a compromise can be made if the app is otherwise free to use. Apps like YouTube play advertisements 
+on nearly every video on their platform but most of the time they can be skipped after a few seconds. 
+Alternatively, users can pay a monthly subscription to remove ads entirely and to gain some additional features 
+like listening to videos with their screen off. Both methods of using ads sparingly and paying for additional 
+but not necessary features allow customers to use the app for free while rewarding the developers with 
+compensation. 
+
+
+3. One example of an app with a good UI/UX is the YouTube mobile app. It is intuitive to use to the point where 
+the user doesn't need to know how to read to comfortably make use of the app. Without knowing the app's 
+purpose, users can launch the app and quickly become familiar with the process of finding and watching videos 
+that look interesting. Additionally, YouTube has a consistent layout and no matter the content, the user can 
+expect the layout and process of watching videos to be the same. Both qualities make the YouTube mobile app to 
+be a great example of a good UI/UX that continues to be impressive through many generations.
+
+Another example of an app with a good UI/UX is Venmo. Once a user has linked a payment method it is extremely 
+easy to send or receive money to anyone else who has the app. Navigating the app is simple and when it is opened 
+the user is prompted with a pay or request payment option immediately. It doesn’t hide any of the information in 
+cluttered menus and makes transferring money as easy as few taps even to a stranger.
+
+
+4. The last three questions have gotten me closer to deciding on the mobile app I would like to pursue in this 
+course. The app that I am heavily considering is one to browse and watch clips on Twitch. The clips are five to 
+sixty seconds long and are already available to watch on the Twitch website but are often cumbersome to find 
+and watch on a mobile device. I want to take inspiration from YouTube and its UI/UX as the design will likely be 
+similar because they are apps focused on finding and watching videos but on different platforms.
+
