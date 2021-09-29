@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Homework_Assignment_2_First_App</string>
+    <string name="author_name">Michael McGilvray</string>
+    <string name="selfie_desc">Michael McGilvray in a blue suit</string>
+    <string name="about_me_button">Learn more about me!</string>
+    <string name="welcome">Hello, welcome to my first app!</string>
+</resources>
