@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Investments">
+
+    <ScrollView
+        android:layout_width="410dp"
+        android:layout_height="733dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/investments_mine"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/portfolio1"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:contentDescription="@string/investments_portfolio1Description"
+                android:src="@drawable/portfolio1" />
+
+            <ImageView
+                android:id="@+id/portfolio2"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:contentDescription="@string/investments_portfolio2Description"
+                android:src="@drawable/portfolio2" />
+
+            <TextView
+                android:id="@+id/father"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/investments_father"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/portfolio3"
+                android:layout_width="match_parent"
+                android:layout_height="350sp"
+                android:contentDescription="@string/investments_portfolio3Description"
+                android:src="@drawable/portfolio3" />
+
+            <ImageView
+                android:id="@+id/portfolio4"
+                android:layout_width="match_parent"
+                android:layout_height="350sp"
+                android:contentDescription="@string/investments_portfolio4Description"
+                android:src="@drawable/portfolio4" />
+
+            <TextView
+                android:id="@+id/brother"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/investments_brother"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/portfolio5"
+                android:layout_width="match_parent"
+                android:layout_height="350sp"
+                android:contentDescription="@string/investments_portfolio5Description"
+                android:src="@drawable/portfolio5" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

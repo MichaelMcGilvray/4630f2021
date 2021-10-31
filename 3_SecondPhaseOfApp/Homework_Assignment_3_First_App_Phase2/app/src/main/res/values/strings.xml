@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Homework Assignment 3</string>
+
+    <string name="aboutMe_intro">Hello, my name is Michael McGilvray.</string>
+    <string name="aboutMe_university">I am a senior computer science student at the University of Massachusetts Lowell.</string>
+    <string name="selfieDescription">Michael McGilvray in a blue suit.</string>
+
+    <string name="cakeDescription">Icon of a birthday cake</string>
+    <string name="walkingDescription">Icon of a person walking</string>
+    <string name="houseDescription">Icon of a house</string>
+    <string name="childDescription">Icon of a child\'s face</string>
+    <string name="githubDescription">Icon of the GitHub logo</string>
+    <string name="linkedinDescription">Icon of the LinkedIn logo</string>
+
+    <string name="weather_intro">View the weather where:</string>
+    <string name="weather_born">I was born</string>
+    <string name="weather_live">I live now</string>
+    <string name="weather_likeToLive">I\'d like to live</string>
+    <string name="weather_brotherLives">My brother lives</string>
+    <string name="weather_whereIAmNow">You are now</string>
+
+    <string name="funFacts_bornTitle">Where was I born?</string>
+    <string name="funFacts_born">I was born in Framingham Massachusetts on December 27th, 1999</string>
+    <string name="funFacts_liveTitle">Where do I live?</string>
+    <string name="funFacts_live">I currently live a mile away from UML North Campus in an apartment</string>
+    <string name="funFacts_likeToLiveTitle">Where would I like to live?</string>
+    <string name="funFacts_likeToLive">I would like to live in New York when I have the money</string>
+    <string name="funFacts_brotherBornTitle">Where was my brother born?</string>
+    <string name="funFacts_brotherBorn">My younger brother was born in Framingham Massachusetts on February 6th, 2006</string>
+    <string name="funFacts_learnMore">Learn more about me!</string>
+
+    <string name="investments_mine">My investment approach:</string>
+    <string name="investments_father">My father\'s investment approach:</string>
+    <string name="investments_brother">My brother\'s investment approach:</string>
+    <string name="investments_portfolio1Description">Conservative investment portfolio example</string>
+    <string name="investments_portfolio2Description">Moderately aggressive investment portfolio example</string>
+    <string name="investments_portfolio3Description">Balanced investment portfolio example</string>
+    <string name="investments_portfolio4Description">Growth investment portfolio example</string>
+    <string name="investments_portfolio5Description">Most aggressive investment portfolio example</string>
+
+    <string name="other_resume">View my resume!</string>
+</resources>
