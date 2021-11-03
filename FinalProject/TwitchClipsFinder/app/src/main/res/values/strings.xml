@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Twitch Clips Finder</string>
+
+    <string name="watchClip">Watch a clip</string>
+    <string name="search">Search!</string>
+
+    <string name="sampleClipTitle">Sample clip title</string>
+    <string name="sampleClipViews">100,000 views</string>
+    <string name="sampleClipBroadcasterName">Sample broadcaster name</string>
+</resources>
