@@ -15,6 +15,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
 public class MainActivity extends AppCompatActivity {
     private Button watchAClipButton;
     private Button searchButton;
@@ -30,7 +35,17 @@ public class MainActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                generateClips();
+                try {
+                    generateClips();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -40,43 +55,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void generateClips() {
+    public void generateClips() throws InterruptedException, ExecutionException, JSONException, IOException {
         LinearLayout linearLayout = findViewById(R.id.clipsList);
 
-        // Temporarily, I will just generate 5 clips
-        final int totalClips = 5;
+        // Temporarily, I will just generate 10 clips
+        final int totalClips = 10;
 
-        Clip[] arrOfClips = new Clip[totalClips];
+        Clip[] arrOfClips = new clipGenerator().getClips("743");
 
         for (int i = 0; i < totalClips; i++) {
-            arrOfClips[i] = getClipInformation();
-
-            ImageView imageView = new ImageView(this);
-
-            // Use Picasso to load image into ImageView using a URL
-            Picasso.get().load(arrOfClips[i]._thumbnail).into(imageView);
-
-            // LinearLayout.LayoutParams imageParameters = new LinearLayout.LayoutParams(480, 720);
-            // imageView.setLayoutParams(imageParameters);
-
-            // Make the ImageView clickable and open the clip watching screen
-            imageView.setClickable(true);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openClipWatchingActivity();
-                }
-            });
-
-            // Add the imageView to the linearLayout (scrolling section in app)
-            linearLayout.addView(imageView);
-
-            // Create title
-            TextView textView = new TextView(this);
-            textView.setText(arrOfClips[i]._title);
-            textView.setGravity(Gravity.CENTER);
-            textView.setTextColor(Color.BLACK);
-            linearLayout.addView(textView);
+            createClipView(arrOfClips[i]);
         }
     }
 
@@ -90,20 +78,34 @@ public class MainActivity extends AppCompatActivity {
         return ret;
     }
 
-    private class Clip {
-        public String _thumbnail;
-        public String _embed_url;
-        public String _title;
-        public int _views;
-        public String _broadcaster_name;
+    public void createClipView(Clip clip) {
+        LinearLayout linearLayout = findViewById(R.id.clipsList);
 
-        Clip(String thumbnail, String embed_url, String title, int views, String broadcaster_name) {
-            _thumbnail = thumbnail;
-            _embed_url = embed_url;
-            _title = title;
-            _views = views;
-            _broadcaster_name = broadcaster_name;
-        }
+        ImageView imageView = new ImageView(this);
 
+        // Use Picasso to load image into ImageView using a URL
+        Picasso.get().load(clip._thumbnail).into(imageView);
+
+        // LinearLayout.LayoutParams imageParameters = new LinearLayout.LayoutParams(480, 720);
+        // imageView.setLayoutParams(imageParameters);
+
+        // Make the ImageView clickable and open the clip watching screen
+        imageView.setClickable(true);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openClipWatchingActivity();
+            }
+        });
+
+        // Add the imageView to the linearLayout (scrolling section in app)
+        linearLayout.addView(imageView);
+
+        // Create title
+        TextView textView = new TextView(this);
+        textView.setText(clip._title);
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(Color.BLACK);
+        linearLayout.addView(textView);
     }
 }
