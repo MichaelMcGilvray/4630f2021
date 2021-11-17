@@ -3,16 +3,20 @@ package com.example.twitchclipsfinder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Clip {
+import java.io.Serializable;
+
+public class Clip implements Serializable {
     public String _thumbnail;
     public String _embed_url;
+    public String _url;
     public String _title;
     public int _views;
     public String _broadcaster_name;
 
-    Clip(String thumbnail, String embed_url, String title, int views, String broadcaster_name) {
+    Clip(String thumbnail, String embed_url, String url, String title, int views, String broadcaster_name) {
         _thumbnail = thumbnail;
         _embed_url = embed_url;
+        _url = url;
         _title = title;
         _views = views;
         _broadcaster_name = broadcaster_name;
@@ -21,6 +25,7 @@ public class Clip {
     Clip(JSONObject jsonObject) throws JSONException {
         _thumbnail = jsonObject.getString("thumbnail_url");
         _embed_url = jsonObject.getString("embed_url");
+        _url = jsonObject.getString("url");
         _title = jsonObject.getString("title");
         _views = Integer.parseInt(jsonObject.getString("view_count"));
         _broadcaster_name = jsonObject.getString("broadcaster_name");
@@ -32,6 +37,7 @@ public class Clip {
                 + "\tView Count = " + _views + "\n"
                 + "\tThumbnail URL = " + _thumbnail + "\n"
                 + "\tEmbed URL = " + _embed_url + "\n"
+                + "\tURL = " + _url + "\n"
         );
     }
 }
