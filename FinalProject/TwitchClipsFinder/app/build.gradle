@@ -36,14 +36,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    // Twitch4j - Twitch API wrapper
-    implementation group: 'com.github.twitch4j', name: 'twitch4j', version: '1.5.0'
-    // or using it into compile
-    api group: 'com.github.twitch4j', name: 'twitch4j', version: '1.5.0'
-
-    // Logback (Twitch4j)
-    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-
     // Picasso (load images from a URL)
     implementation 'com.squareup.picasso:picasso:2.71828'
 }
