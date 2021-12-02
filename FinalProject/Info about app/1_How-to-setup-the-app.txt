@@ -1,4 +1,4 @@
-- Download the Twitch-Clips-Finder.apk from GitHub ()
+- Download the Twitch-Clips-Finder.apk from GitHub (https://github.com/MichaelMcGilvray/4630f2021/blob/main/FinalProject/Twitch-Clips-Finder.apk)
 - Open Android Studio (Download Android Studio here: https://developer.android.com/studio)
 
 - If you already have a project open:
