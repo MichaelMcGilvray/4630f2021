@@ -44,4 +44,7 @@ Recommended clips
 Open the clip in Twitch button
   o In the clip viewing activity, the “open the clip in Twitch” button will be displayed at the bottom of the activity.
   o Pressing this button will open the Twitch website at the point in the live stream when the clip was created if the live stream is available. Otherwise, a message will appear telling the user that the live stream is unavailable.
+  o Search for the streamer "nl_Kripp", select a start date of "November 1, 2021", and a time interval of 1 month.
+    - Select the first clip titled "What are these numbers?" then press the "open clip in Twitch" button when in the clip viewing activity.
+    - Pressing the button will open Twitch at the point in the live stream when the clip was created.
   o NOTE: This feature only works if the streamer enables live stream saving and makes them publicly available. Some streamers may have live stream saving enabled but make them available only to subscribers who pay for their content.
