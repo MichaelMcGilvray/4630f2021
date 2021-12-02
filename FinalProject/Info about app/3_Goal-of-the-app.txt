@@ -1,3 +1,23 @@
-	My app attempts to solve the problem of finding and watching Twitch clips through the official Twitch app. The goal of Twitch Clips Finder is to improve the clip searching and watching experience by providing more specific search filters and a more user-friendly UI. The official Twitch app focuses on the Twitch live streams and thus hides the clips behind menus and makes the process of finding clips troublesome. Alternative third-party apps like “Clips from Twitch” focus on the Twitch clips rather than the live streams but are also missing some important functionality that improves the clip searching and watching experience. “Clips from Twitch” is an elementary version of a clip watching app since it is missing key pieces of information about the clips such as the title of the clips, streamer name, and the number of views the clip received. In addition to this, the clip video player can’t be full-screened and uses about a third of the screen while leaving the other two-thirds of the screen blank. Although not as obviously limiting, the official Twitch app is also missing some important functionality including the ability to filter clips by criteria other than popularity.
+	My app attempts to solve the problem of finding and watching Twitch clips through the official
+Twitch app. The goal of Twitch Clips Finder is to improve the clip searching and watching experience by
+providing more specific search filters and a more user-friendly UI. The official Twitch app focuses on the
+Twitch live streams and thus hides the clips behind menus and makes the process of finding clips
+troublesome. Alternative third-party apps like “Clips from Twitch” focus on the Twitch clips rather than
+the live streams but are also missing some important functionality that improves the clip searching and
+watching experience. “Clips from Twitch” is an elementary version of a clip watching app since it is
+missing key pieces of information about the clips such as the title of the clips, streamer name, and the
+number of views the clip received. In addition to this, the clip video player can’t be full-screened and
+uses about a third of the screen while leaving the other two-thirds of the screen blank. Although not as
+obviously limiting, the official Twitch app is also missing some important functionality including the
+ability to filter clips by criteria other than popularity.
 
-	My approach when designing Twitch Clips Finder was to fix these issues in both “Clips from Twitch” and the official Twitch app. Being a frequent Twitch user, I used my experience to prioritize the most essential features that I would want from the official Twitch app. I implemented features to filter by stream category, streamer name, date, and any combination of the three. Unlike the other apps, I gave the users options so they could easily find the clips they wanted to watch. By focusing solely on the clips from Twitch I was able to remove some of the unnecessary fluff features to make UI more user-friendly. Especially for infrequent Twitch users, it can be difficult to find where to search for clips through the Twitch app, and my approach condenses the process to its core components. Using any combination of the stream category, streamer name, and date, the user can find any clip from Twitch and can expand or narrow their searches accordingly. 
+	My approach when designing Twitch Clips Finder was to fix these issues in both “Clips from
+Twitch” and the official Twitch app. Being a frequent Twitch user, I used my experience to prioritize the
+most essential features that I would want from the official Twitch app. I implemented features to filter
+by stream category, streamer name, date, and any combination of the three. Unlike the other apps, I
+gave the users options so they could easily find the clips they wanted to watch. By focusing solely on the
+clips from Twitch I was able to remove some of the unnecessary fluff features to make UI more userfriendly. 
+Especially for infrequent Twitch users, it can be difficult to find where to search for clips
+through the Twitch app, and my approach condenses the process to its core components. Using any
+combination of the stream category, streamer name, and date, the user can find any clip from Twitch
+and can expand or narrow their searches accordingly.
