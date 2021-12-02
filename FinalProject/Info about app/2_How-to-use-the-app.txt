@@ -16,7 +16,7 @@ To make your life easier, you can follow the steps below to get a good understan
     - In the category search bar, type and select the “Hearthstone” category.
     - In the streamer search bar, type and select the streamer “nl_Kripp”.
     - Press the search button.
-    - The most popular clips from the streamer “nl_Kripp” from the category “Chess” will be shown.
+    - The most popular clips from the streamer “nl_Kripp” from the category “Hearthstone” will be shown.
     - NOTE: if no clips exist that meet both search criteria, then a message will be shown.
   o By streamer and date or category and date
     - NOTE: to use the date search option, you must pair it with either the streamer search or category search.
