@@ -3,9 +3,7 @@ package com.example.twitchclipsfinder;
 
 import android.os.AsyncTask;
 import android.os.Build;
-
 import androidx.annotation.RequiresApi;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -42,11 +40,6 @@ public class twitchRequest extends AsyncTask<Void, Void, Void> {
             connection.connect();
 
             int responseCode = connection.getResponseCode();
-            // System.out.print("Response code = " + responseCode + "\n");
-
-            // String responseMessage = connection.getResponseMessage();
-            // System.out.print("Response Message = " + responseMessage + "\n");
-
 
             // This means we got a valid response
             if ((responseCode == 200) || (responseCode == 201)) {
@@ -66,7 +59,6 @@ public class twitchRequest extends AsyncTask<Void, Void, Void> {
                 System.out.print("Error: Couldn't get a valid response from Twitch API\n");
                 System.out.print("Response code = " + responseCode + "\n");
             }
-
 
 
         } catch(Exception e) {

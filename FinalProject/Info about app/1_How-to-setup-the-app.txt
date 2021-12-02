@@ -1,0 +1,18 @@
+- Download the Twitch-Clips-Finder.apk from GitHub ()
+- Open Android Studio (Download Android Studio here: https://developer.android.com/studio)
+
+- If you already have a project open:
+  o At the top of Android Studio, click “Tools” then select “AVD Manager”
+  o If you don’t have a virtual device, create one (Tutorial to create a virtual device: https://developer.android.com/studio/run/managing-avds)
+  o Start one of your virtual devices by pressing the green play button on the right
+  o Drag and drop the Twitch-Clips-Finder.apk file onto your virtual device to install the APK.
+  o Open the app the Twitch Clips Finder app on your virtual device.
+
+- If you don’t already have a project open:
+  o Click “Open”
+  o Select the Twitch-Clips-Finder.apk file and click “OK”
+  o At the top of Android Studio, click “Tools” then select “AVD Manager”
+  o If you don’t have a virtual device, create one (Tutorial to create a virtual device: https://developer.android.com/studio/run/managing-avds)
+  o Start one of your virtual devices by pressing the green play button on the right
+  o Drag and drop the Twitch-Clips-Finder.apk file onto your virtual device to install the APK.
+  o Open the app the Twitch Clips Finder app on your virtual device.

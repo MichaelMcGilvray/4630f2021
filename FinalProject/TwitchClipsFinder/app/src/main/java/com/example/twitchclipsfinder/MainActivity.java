@@ -2,16 +2,12 @@ package com.example.twitchclipsfinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.DialogFragment;
-
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -21,26 +17,17 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SearchView;
-import android.widget.SearchView.OnQueryTextListener;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
-
 import org.json.JSONException;
-
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
@@ -79,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
         // Setup the autocomplete results when new text is entered
         categorySearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 String query = categorySearch.getText().toString();
 
                 if (query.length() > 0) {
@@ -113,21 +97,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) { }
         });
 
         // Setup the autocomplete results when new text is entered
         streamerSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 String query = streamerSearch.getText().toString();
 
                 if (query.length() > 0) {
@@ -155,26 +134,25 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) { }
         });
 
 
+        // Setup radio buttons and date picker
         datePicker = findViewById(R.id.datePicker);
-
-
         radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = findViewById(checkedId);
                 selectedTimeInterval = radioButton.getText().toString().toLowerCase(Locale.ROOT);
-                // System.out.print("Selected " + selectedTimeInterval + "\n");
+                if (selectedTimeInterval.equals("none")) {
+                    selectedStartDate = "";
+                    selectedEndDate = "";
+                }
             }
         });
         
-
 
 
         // Setup the search button
@@ -261,8 +239,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     public void generateClips() throws InterruptedException, ExecutionException, JSONException, IOException {
         LinearLayout linearLayout = findViewById(R.id.clipsList);
+        linearLayout.removeAllViews();
 
         Tuple ret = new Tuple();
         Clip[] arrOfClips = new Clip[0];
@@ -275,13 +256,11 @@ public class MainActivity extends AppCompatActivity {
 
         // If no fields entered
         if ((selectedCategoryID == "") && (selectedStreamerID == "")) {
-            displayMessage("Please specify a filtering method.");
+            displayMessage("Please specify a streamer or category to search by.");
             return;
         }
 
         while ((totalClipsViews < MAX_CLIPS) && (numberOfRequests < MAX_REQUESTS)) {
-            // System.out.print("number of requests = " + numberOfRequests + "\n");
-
             // If only one field is entered
             if ((selectedCategoryID != "") && (selectedStreamerID == "")) {
                 ret = new clipGenerator().getClipsFromCategory(selectedCategoryID, pagination, selectedStartDate, selectedEndDate);
@@ -289,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
                 arrOfClips = ret._clips;
                 pagination = ret._key;
 
-                for (int i = 0; (i < arrOfClips.length) && (i < MAX_CLIPS); i++) {
+                for (int i = 0; (i < arrOfClips.length) && (totalClipsViews < MAX_CLIPS); i++) {
                     createClipView(arrOfClips[i]);
                     totalClipsViews++;
                 }
@@ -300,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
                 arrOfClips = ret._clips;
                 pagination = ret._key;
 
-                for (int i = 0; (i < arrOfClips.length) && (i < MAX_CLIPS); i++) {
+                for (int i = 0; (i < arrOfClips.length) && (totalClipsViews < MAX_CLIPS); i++) {
                     createClipView(arrOfClips[i]);
                     totalClipsViews++;
                 }
@@ -314,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
                 pagination = ret._key;
 
                 // Then check if the arrOfClips are also in the category
-                for (int i = 0; (i < arrOfClips.length) && (i < MAX_CLIPS); i++) {
+                for (int i = 0; (i < arrOfClips.length) && (totalClipsViews < MAX_CLIPS); i++) {
                     if (arrOfClips[i]._game_id.equals(selectedCategoryID)) {
                         createClipView(arrOfClips[i]);
                         totalClipsViews++;
@@ -387,6 +366,8 @@ public class MainActivity extends AppCompatActivity {
         linearLayout.addView(views);
     }
 
+
+
     public void closeKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
@@ -399,6 +380,8 @@ public class MainActivity extends AppCompatActivity {
         Snackbar snackbar = Snackbar.make(findViewById(R.id.mainActivityLayout), message, 5000);
         snackbar.show();
     }
+
+
 
     public void calculateStartAndEndDate() throws ParseException {
         int day = datePicker.getDayOfMonth();
@@ -439,34 +422,3 @@ public class MainActivity extends AppCompatActivity {
         return ret;
     }
 }
-
-
-/*
-curl -X GET 'https://api.twitch.tv/helix/clipscurl -X GET 'https://api.twitch.tv/helix/clips?game_id=32982' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'
-- Returns 20 clips
-
-curl -X GET 'https://api.twitch.tv/helix/clips?broadcaster_id=95873995' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'
-- Returns 19 clips
-
-curl -X GET 'https://api.twitch.tv/helix/clips?broadcaster_id=26301881' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'
-
-
-Sodapoppin ID = 26301881
-Just chatting ID = 509658
-
-
-
-
-GetClips with pagination:
-curl -X GET 'https://api.twitch.tv/helix/clips?broadcaster_id=95873995&after=2' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'
-Cursor = eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik1qQT0ifX0
-
-
-
-GetClips by date
-curl -X GET 'https://api.twitch.tv/helix/clips?broadcaster_id=95873995&started_at=2021-10-03T00:00:01.52Z' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'
-
-
-GetClips with start and end date
-curl -X GET 'https://api.twitch.tv/helix/clips?game_id=32982&started_at=2021-10-03T00:00:01.52Z&ended_at=2021-11-03T00:00:01.52Z' -H 'Authorization: Bearer hlpj3tm0717ydxtihrn78kwywsup6i' -H 'Client-Id: k61784vtuptn3u2aes0xf6ss1e2nf5'
- */

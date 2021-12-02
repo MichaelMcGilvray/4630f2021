@@ -1,0 +1,47 @@
+To make your life easier, you can follow the steps below to get a good understanding of what my app does and how to use it.
+
+
+- Searching
+  o By category
+    - In the category search bar, begin typing “Hearthstone” and you should see a list of categories like your query as your type. Tap on the “Hearthstone” category from the autocomplete.
+    - Press the search button.
+    - The most popular clips in the “Hearthstone” category will now be shown.
+    - The clips are placed in a scroll view, so you can scroll to see all the clips.
+    - Each clip is made up of a thumbnail, title, streamer name, and the number of clips that clip received. 
+  o By streamer
+    - In the streamer search bar, begin typing “nl_Kripp” and you should see a list of streamers like your query as you type. Tap on the streamer “nl_Kripp” from the autocomplete.
+    - Press the search button.
+    - The most popular clips from the streamer “nl_Kripp” will now be shown.
+  o By streamer and category
+    - In the category search bar, type and select the “Hearthstone” category.
+    - In the streamer search bar, type and select the streamer “nl_Kripp”.
+    - Press the search button.
+    - The most popular clips from the streamer “nl_Kripp” from the category “Chess” will be shown.
+    - NOTE: if no clips exist that meet both search criteria, then a message will be shown.
+  o By streamer and date or category and date
+    - NOTE: to use the date search option, you must pair it with either the streamer search or category search.
+    - In the category search bar, type and select the “Hearthstone” category.
+    - Using the date picker, select the start date “November 1, 2021”
+    - Using the radio buttons, select the time interval of “1 week”
+    - The most popular clips from the “Hearthstone” category from November 1st to November 8th (1 week) will be shown.
+  o By any combination of the three	
+    - You can play with these search criteria to find any clip
+
+
+Clip watching
+  o Once a clip search has been made and a list of clips is shown, tap on any clip thumbnail (image) to open the clip viewing activity.
+  o At the top left of this activity, is an up button that returns you to the clip searching activity.
+  o Once in the clip viewing activity, the clip title, streamer name, and the number of views the clip received are shown.
+  o Above the title and other clip information, is the clip video player that functions like any other traditional video player.
+    - The main exception is that the full-screen button is in the top right of the video player to full-screen or minimize the video player.
+
+
+Recommended clips
+  o In the clip viewing activity, the clips like the one that is playing will be displayed below the video player and clip information.
+  o Like the clip searching activity, a clip can be watched by tapping on the thumbnail.
+
+
+Open the clip in Twitch button
+  o In the clip viewing activity, the “open the clip in Twitch” button will be displayed at the bottom of the activity.
+  o Pressing this button will open the Twitch website at the point in the live stream when the clip was created if the live stream is available. Otherwise, a message will appear telling the user that the live stream is unavailable.
+  o NOTE: This feature only works if the streamer enables live stream saving and makes them publicly available. Some streamers may have live stream saving enabled but make them available only to subscribers who pay for their content.

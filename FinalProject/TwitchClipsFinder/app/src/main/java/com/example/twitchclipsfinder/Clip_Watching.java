@@ -1,48 +1,21 @@
 package com.example.twitchclipsfinder;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.MediaController;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.VideoView;
-
 import com.google.android.material.snackbar.Snackbar;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -50,7 +23,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import org.json.*;
-
+import com.squareup.picasso.Picasso;
 
 public class Clip_Watching extends AppCompatActivity {
     private TextView title;
@@ -69,6 +42,41 @@ public class Clip_Watching extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  // Enable up button
 
+        setupClip();
+        setupRecommendedClips();
+
+
+
+        // Setup fullscreen button
+        fullscreenButton = findViewById(R.id.fullscreenButton);
+        webView = findViewById(R.id.webView);
+        fullscreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.print("Fullscreen clicked!\n");
+                if (isFullscreened) {
+                    LinearLayout.LayoutParams imageParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 650);
+                    webView.setLayoutParams(imageParameters);
+
+                    fullscreenButton.setImageResource(R.drawable.ic_baseline_fullscreen_24);
+
+                    openInTwitchButton.setVisibility(View.VISIBLE);
+                    isFullscreened = false;
+                } else {
+                    ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
+                    webView.setLayoutParams(layoutParams);
+
+                    fullscreenButton.setImageResource(R.drawable.ic_baseline_fullscreen_exit_24);
+
+                    openInTwitchButton.setVisibility(View.GONE);
+                    isFullscreened = true;
+                }
+            }
+        });
+
+
+
+        // Setup openInTwitch button
         openInTwitchButton = findViewById(R.id.openInTwitchButton);
         title = findViewById(R.id.title);
         openInTwitchButton.setOnClickListener(new View.OnClickListener() {
@@ -130,34 +138,6 @@ public class Clip_Watching extends AppCompatActivity {
                 startActivity(newIntenet);
             }
         });
-
-        fullscreenButton = findViewById(R.id.fullscreenButton);
-        webView = findViewById(R.id.webView);
-        fullscreenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.print("Fullscreen clicked!\n");
-                if (isFullscreened) {
-                    LinearLayout.LayoutParams imageParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 650);
-                    webView.setLayoutParams(imageParameters);
-
-                    fullscreenButton.setImageResource(R.drawable.ic_baseline_fullscreen_24);
-
-                    openInTwitchButton.setVisibility(View.VISIBLE);
-                    isFullscreened = false;
-                } else {
-                     ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
-                     webView.setLayoutParams(layoutParams);
-
-                    fullscreenButton.setImageResource(R.drawable.ic_baseline_fullscreen_exit_24);
-
-                    openInTwitchButton.setVisibility(View.GONE);
-                    isFullscreened = true;
-                }
-            }
-        });
-
-        setupClip();
     }
 
     public void noStreamExists() {
@@ -165,8 +145,9 @@ public class Clip_Watching extends AppCompatActivity {
         snackbar.show();
     }
 
+
+
     public void setupClip() {
-        System.out.print("setting up clip\n");
         // Get the extra data we pass with the intent when this activity is started
         Intent intent = getIntent();
         Clip clip = (Clip) intent.getSerializableExtra("clip");
@@ -181,10 +162,7 @@ public class Clip_Watching extends AppCompatActivity {
         views.setText((NumberFormat.getInstance().format(clip._views)) + " views");
 
         loadVideo(clip._embed_url);
-
-        clip.print();
     }
-
 
     public void loadVideo(String embed_url) {
         WebView webView = findViewById(R.id.webView);
@@ -197,7 +175,80 @@ public class Clip_Watching extends AppCompatActivity {
         // Load the clip using TwitchClipsFinder site I made
         String TwitchClipsFinderURL = "https://michaelmcgilvray.github.io/Twitch-Clips-Finder/?clipURL=";
         webView.loadUrl(TwitchClipsFinderURL + embed_url);
-        
-        System.out.print("Video started\n");
+    }
+
+
+
+    public void setupRecommendedClips() {
+        Intent intent = getIntent();
+        Clip clip = (Clip) intent.getSerializableExtra("clip");
+
+        Tuple tuple = new Tuple();
+
+        try {
+            tuple = new clipGenerator().getClipsFromStreamer(clip._broadcaster_id, "", "", "");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Select a random clip
+        int min = 0;
+        int max = tuple._clips.length - 1;
+        int i = (int) (Math.random() * (max - min + 1) + min);
+        Clip randomClip = tuple._clips[i];
+
+        // Setup the clip view
+        LinearLayout linearLayout = findViewById(R.id.recommendedClipsList);
+        ImageView imageView = new ImageView(this);
+
+        // Use Picasso to load image into ImageView using a URL
+        Picasso.get().load(randomClip._thumbnail).into(imageView);
+
+        LinearLayout.LayoutParams imageParameters = new LinearLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, 500);
+        imageView.setLayoutParams(imageParameters);
+
+        // Make the ImageView clickable and open the clip watching screen
+        imageView.setClickable(true);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Clip_Watching.this, Clip_Watching.class);
+                intent.putExtra("clip", randomClip);
+                startActivity(intent);
+            }
+        });
+
+        // Add the imageView to the linearLayout (scrolling section in app)
+        linearLayout.addView(imageView);
+
+        // Create title
+        TextView title = new TextView(this);
+        title.setText(randomClip._title);
+        title.setTextColor(Color.BLACK);
+        title.setPadding(100,10, 0, 0);
+        title.setTextSize(18);
+        linearLayout.addView(title);
+
+        // Create streamer name
+        TextView streamer = new TextView(this);
+        streamer.setText(randomClip._broadcaster_name);
+        streamer.setTextColor(Color.BLACK);
+        streamer.setPadding(100,0, 0, 0);
+        streamer.setTextSize(14);
+        linearLayout.addView(streamer);
+
+        // Create views
+        TextView views = new TextView(this);
+        views.setText((NumberFormat.getInstance().format(randomClip._views)) + " views");
+        views.setTextColor(Color.BLACK);
+        views.setPadding(100,0, 0, 50);
+        views.setTextSize(14);
+        linearLayout.addView(views);
     }
 }

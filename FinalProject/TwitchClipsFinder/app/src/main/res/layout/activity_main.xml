@@ -11,6 +11,7 @@
         android:id="@+id/categorySearch"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:theme="@style/Autocomplete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="56dp"
+        android:theme="@style/Autocomplete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,26 +70,30 @@
             android:id="@+id/datePicker_none"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="None"
-            android:checked="true"/>
+            android:buttonTint="@color/blue"/>
 
         <RadioButton
             android:id="@+id/datePicker_day"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Day" />
+            android:text="Day"
+            android:buttonTint="@color/blue"/>
 
         <RadioButton
             android:id="@+id/datePicker_week"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Week" />
+            android:text="Week"
+            android:buttonTint="@color/blue"/>
 
         <RadioButton
             android:id="@+id/datePicker_month"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Month" />
+            android:text="Month"
+            android:buttonTint="@color/blue"/>
     </RadioGroup>
 
     <Button
@@ -95,6 +101,7 @@
         android:layout_width="176dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/light_blue"
         android:text="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

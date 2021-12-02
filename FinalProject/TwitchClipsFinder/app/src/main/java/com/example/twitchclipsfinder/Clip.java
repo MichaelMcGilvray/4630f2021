@@ -15,8 +15,9 @@ public class Clip implements Serializable {
     public String _video_id;
     public String _created_at;
     public String _game_id;
+    public String _broadcaster_id;
 
-    Clip(String thumbnail, String embed_url, String url, String title, int views, String broadcaster_name, String video_id, String created_at, String game_id) {
+    Clip(String thumbnail, String embed_url, String url, String title, int views, String broadcaster_name, String video_id, String created_at, String game_id, String broadcaster_id) {
         _thumbnail = thumbnail;
         _embed_url = embed_url;
         _url = url;
@@ -26,6 +27,7 @@ public class Clip implements Serializable {
         _video_id = video_id;
         _created_at = created_at;
         _game_id = game_id;
+        _broadcaster_id = broadcaster_id;
     }
 
     Clip(JSONObject jsonObject) throws JSONException {
@@ -38,6 +40,7 @@ public class Clip implements Serializable {
         _video_id = jsonObject.getString("video_id");
         _created_at = jsonObject.getString("created_at");
         _game_id = jsonObject.getString("game_id");
+        _broadcaster_id = jsonObject.getString("broadcaster_id");
     }
 
     public void print() {
@@ -49,6 +52,7 @@ public class Clip implements Serializable {
                 + "\tURL = " + _url + "\n"
                 + "\tVideo ID = " + _video_id + "\n"
                 + "\tCreated at = " + _created_at + "\n"
+                + "\tBroadcaster ID = " + _broadcaster_id + "\n"
         );
     }
 }

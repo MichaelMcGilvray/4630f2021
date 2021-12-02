@@ -1,0 +1,18 @@
+Twitch Clips Finder source code:
+https://github.com/MichaelMcGilvray/4630f2021/tree/main/FinalProject/TwitchClipsFinder
+
+
+More specifically, here are some of the most important files of my app:
+- Java Files
+https://github.com/MichaelMcGilvray/4630f2021/tree/main/FinalProject/TwitchClipsFinder/app/src/main/java/com/example/twitchclipsfinder
+- Layout XML Files
+https://github.com/MichaelMcGilvray/4630f2021/tree/main/FinalProject/TwitchClipsFinder/app/src/main/res/layout
+- Drawables (images, icons, etc.)
+https://github.com/MichaelMcGilvray/4630f2021/tree/main/FinalProject/TwitchClipsFinder/app/src/main/res/drawable
+- APIs and libraries used
+  o Twitch API
+https://dev.twitch.tv/docs/api/reference
+  o Picasso
+https://square.github.io/picasso/
+  o Org.json
+https://stleary.github.io/JSON-java/index.html
